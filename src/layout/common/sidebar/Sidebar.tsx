@@ -12,10 +12,10 @@ function Sidebar() {
     <div
       className={`${
         isOpen ? " w-[250px]" : "w-[80px]"
-      } relative bg-white border-rw shadow-lg shadow-slate-100  px-5 py-8 transition-all`}
+      } relative bg-white border-rw shadow-lg shadow-slate-100  px-5 py-8 transition-all hidden md:flex md:flex-col`}
     >
       <div
-        className="flexCenter absolute top-4 -right-4 text-white bg-mainColor p-1 rounded-full w-[30px] h-[30px] cursor-pointer"
+        className="flexCenter absolute top-4 -right-4 text-white bg-violet-500 p-1 rounded-full w-[30px] h-[30px] cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         <IoIosArrowBack

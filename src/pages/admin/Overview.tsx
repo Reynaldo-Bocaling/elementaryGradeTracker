@@ -4,6 +4,11 @@ import ColumnChart from "../../components/charts/ColumnCharf";
 import AverageCircleChart from "../../components/charts/CircularChart";
 import { LiaAwardSolid } from "react-icons/lia";
 import { users } from "../../services/DummyData";
+import { Button } from "@nextui-org/react";
+import { HiChevronRight } from "react-icons/hi";
+import adminFloatingIcon from "../../assets/AdminFloat.png";
+import averageFloatingIcon from "../../assets/averageIcon.png";
+
 const Overview = () => {
   const subjectData = [
     { name: "ITWS01", average: 85 },
@@ -24,9 +29,41 @@ const Overview = () => {
 
       {/* count box */}
       <div className="flexColStart gap-3">
-        <div className="flex items-start gap-3 w-full">
-          <div className="w-[65%] flex flex-col gap-3">
-            <div className="w-full bg-white p-3 rounded-lg border border-slate-100 shadow-lg shadow-slate-200">
+        <div className="flex flex-col items-start md:flex-row gap-3 w-full ">
+          <div className="w-full md:w-[65%] flex flex-col gap-3">
+            <div className="relative w-full bg-gradient-to-r from-purple-600 to-purple-800 p-3 rounded-xl border border-slate-100 shadow-lg shadow-violet-100 py-10 px-7">
+              <div>
+                <p className="text-xl font-semibold text-white">
+                  Track and Manage Elementary Grades
+                </p>
+                <span className="text-sm text-violet-200">
+                  unlocking the potential of grade tracking
+                </span>
+                <div className="flexStart gap-3 mt-7">
+                  <Button
+                    size="md"
+                    className="bg-white text-sm font-semibold flexCenter"
+                  >
+                    <span>Navigate</span> <HiChevronRight size={20} />
+                  </Button>
+                  <Button className="bg-[rgba(225,214,251,0.2)] text-white">
+                    Explore
+                  </Button>
+                </div>
+              </div>
+
+              <img
+                src={adminFloatingIcon}
+                className="absolute top-8 right-4 w-[150px]"
+                alt=""
+              />
+              <img
+                src={averageFloatingIcon}
+                className="absolute top-10 right-1/4 rotate-45 w-[30px]"
+                alt=""
+              />
+            </div>
+            <div className="w-full bg-white p-3 rounded-lg border border-slate-200 shadow-lg shadow-slate-200">
               <ColumnChart data={subjectData} height={300} />
             </div>
             <div className="w-full bg-white p-4 rounded-lg border border-slate-100 shadow-md shadow-slate-100 ">
@@ -44,7 +81,7 @@ const Overview = () => {
                 </thead>
                 <tbody>
                   {recenter3User.map((item, index) => (
-                    <tr className="h-14">
+                    <tr className="h-14" key={index}>
                       <td className="text-sm text-center">{index + 1}</td>
                       <td className="text-sm text-left pl-3">{`${item.firstname} ${item.lastname}`}</td>
                       <td className="text-sm text-left pl-3">{item.role}</td>
@@ -56,7 +93,7 @@ const Overview = () => {
             </div>
           </div>
 
-          <div className=" flexColStart gap-3 w-[35%]">
+          <div className=" flexColStart gap-3 w-full  md:w-[35%]">
             <div className="w-full grid grid-cols-2 gap-2 ">
               {coundBox.map(({ label, total, color, Icon, shadow }, index) => {
                 return (

@@ -12,25 +12,13 @@ import {
 } from "@nextui-org/react";
 import { gradeLevel } from "../../services/DummyData";
 
-type teacherType = {
-  id: number;
-  name: string;
-  contact: string;
-  email: string;
-  rank: number;
-};
-
-export default function UpdateTeacher({
+export default function CreateStudent({
   isOpen,
   onCLose,
-  data,
 }: {
   isOpen: boolean;
   onCLose: () => void;
-  data: teacherType;
 }) {
-  const [selectData, setSelectData] = useState<teacherType>(data);
-
   return (
     <>
       <Modal isOpen={isOpen} onOpenChange={onCLose} className="max-w-[500px]">
@@ -42,25 +30,17 @@ export default function UpdateTeacher({
               </ModalHeader>
               <ModalBody>
                 <form className="flexColStart gap-2">
-                  <Input
-                    type="text"
-                    size="sm"
-                    label="Student Name"
-                    value={selectData?.name}
-                  />
+                  <Input type="text" size="sm" label="Student Name" />
+                  <Input type="text" size="sm" label="Parent Name" />
+                  <Input type="text" size="sm" label="Parent Email" />
 
-                  <Input
-                    type="text"
-                    size="sm"
-                    label="Parent Name"
-                    value={selectData?.contact}
-                  />
-                  <Input
-                    type="text"
-                    size="sm"
-                    label="Parent Email"
-                    value={selectData?.email}
-                  />
+                  <Select size="sm" label="Select Grade level">
+                    {gradeLevel.map((item) => (
+                      <SelectItem key={item.id} value={item.section}>
+                        {item.section}
+                      </SelectItem>
+                    ))}
+                  </Select>
                 </form>
               </ModalBody>
               <ModalFooter>

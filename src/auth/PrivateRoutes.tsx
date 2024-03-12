@@ -7,7 +7,6 @@ import Admin_Overview from "../pages/admin/Overview";
 const Admin_Teacher = React.lazy(() => import("../pages/admin/Teacher"));
 const Admin_Student = React.lazy(() => import("../pages/admin/Student"));
 const Admin_Grades = React.lazy(() => import("../pages/admin/Grades"));
-const Admin_Settings = React.lazy(() => import("../pages/admin/Settings"));
 const Admin_MyProfile = React.lazy(() => import("../pages/admin/MyProfile"));
 const Admin_Subjext = React.lazy(() => import("../pages/admin/Subject"));
 
@@ -15,7 +14,6 @@ const Admin_Subjext = React.lazy(() => import("../pages/admin/Subject"));
 const Teacher_Overview = React.lazy(() => import("../pages/teacher/Overview"));
 const Teacher_Student = React.lazy(() => import("../pages/teacher/Student"));
 const Teacher_Grade = React.lazy(() => import("../pages/teacher/Grade"));
-const Teacher_Settings = React.lazy(() => import("../pages/teacher/Settings"));
 const Teacher_MyProfile = React.lazy(
   () => import("../pages/teacher/MyProfile")
 );
@@ -51,10 +49,6 @@ const PrivateRoutes = () => {
         element: <Admin_Subjext />,
       },
       {
-        path: "/settings",
-        element: <Admin_Settings />,
-      },
-      {
         path: "/profile",
         element: <Admin_MyProfile />,
       },
@@ -81,10 +75,6 @@ const PrivateRoutes = () => {
         element: <Teacher_Subject />,
       },
       {
-        path: "/settings",
-        element: <Teacher_Settings />,
-      },
-      {
         path: "/profile",
         element: <Teacher_MyProfile />,
       },
@@ -96,7 +86,7 @@ const PrivateRoutes = () => {
   return (
     <>
       <Routes>
-        {isLogged ? (
+        {!isLogged ? (
           <Route
             path="/"
             element={

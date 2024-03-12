@@ -1,5 +1,7 @@
 import React from "react";
 import { studentData } from "../../services/DummyData";
+import { Button } from "@nextui-org/react";
+import { IoAddOutline } from "react-icons/io5";
 const Subject = () => {
   const subjects = studentData.map(({ grades }) => ({
     subject: grades.flatMap(({ subject }) => ({
@@ -11,7 +13,13 @@ const Subject = () => {
 
   return (
     <div>
-      <p className="text-lg font-semibold pl-3 ">Subjects</p>
+      <div className="flexBetween pl-3 pr-12">
+        <p className="text-lg font-semibold ">Subjects</p>
+        <Button color="primary" className="text-sm flex items-center gap-2">
+          Add
+          <IoAddOutline />
+        </Button>
+      </div>
       <div className="grid grid-cols-4 px-2 mt-7 gap-4">
         {subjects[0].subject.map((item, index) => (
           <div

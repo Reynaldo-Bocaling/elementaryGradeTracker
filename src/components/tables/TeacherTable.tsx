@@ -3,37 +3,35 @@ import { LuPencil } from "react-icons/lu";
 import { FiTrash2 } from "react-icons/fi";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 
-type StudentType = {
-  id: number;
-  firstname: string;
-  lastname: string;
-  section: string;
+type studentType = {
+  id?: number;
+  name: string;
   gradeLevel: number;
   parentName: string;
   parentEmail: string;
-  average?: number;
-  grades?: { subject: string; grade: number }[];
+  section?: string;
 };
 
-type updateDataType = {
-  firstname: string;
-  lastname: string;
-  gradeLevel: number;
-  parentName: string;
-  parentEmail: string;
-  section: string;
+type teacherType = {
+  id: number;
+  name: string;
+  contact: string;
+  email: string;
+  rank: number;
+  students: number;
 };
+
 type propsType = {
-  data: StudentType[];
-  header: string[];
-  handleUpdate: (item: updateDataType) => void;
+  data: teacherType[];
+  handleUpdate: (item: teacherType) => void;
   isOpenUpdate: () => void;
+  header: string[];
 };
 
 const TeacherTable = ({
   data,
-  header,
   handleUpdate,
+  header,
   isOpenUpdate,
 }: propsType) => {
   const [tableToggle, setTableToggle] = useState<number | null>(null);
@@ -42,7 +40,7 @@ const TeacherTable = ({
     setTableToggle(tableToggle === id ? null : id);
   };
 
-  const handleUpdateToggle = (item: updateDataType) => {
+  const handleUpdateToggle = (item: teacherType) => {
     handleUpdate(item);
     if (item !== null) {
       isOpenUpdate();
@@ -73,19 +71,17 @@ const TeacherTable = ({
                     <td className="text-sm text-left pl-5 w-[90px]">
                       {item.id}
                     </td>
-                    <td className="text-sm text-left pl-5">{`${item.firstname} ${item.lastname}`}</td>
-                    <td className="text-sm text-left pl-5">
-                      {item.gradeLevel}
-                    </td>
+                    <td className="text-sm text-left pl-5">{item.name}</td>
+                    <td className="text-sm text-left pl-5">{item.contact}</td>
                     <td className="text-sm text-left pl-5 w-[170px]">
-                      {item.parentName}
+                      {item.email}
                     </td>
-                    <td className="text-sm text-left pl-5 w-[170px]">
-                      {item.parentEmail}
+                    <td className="text-sm text-left pl-9 w-[170px]">
+                      {item.rank}
                     </td>
                     <td className="relative  text-sm text-left  w-[170px]">
                       <div className="flexCenter gap-9 ">
-                        <span>{item.section}</span>
+                        <span>{item.students}</span>
                         <div className=" h-14 flexCenter">
                           <button
                             className="text-gray-600 hover:bg-slate-50 py-1 px-2 transition-all hover:rounded-lg hover:shadow-sm"

@@ -1,10 +1,11 @@
 import { Avatar } from "@nextui-org/react";
 import React from "react";
+import { HiMenuAlt2 } from "react-icons/hi";
 import { IoSearch, IoNotificationsOutline } from "react-icons/io5";
 function Header() {
   return (
     <div className="header h-[60px] bg-white shadow-md shadow-slate-100 flex items-center justify-between px-7">
-      <div className="flex items-center gap-3 bg-slate-100 rounded-full py-1 px-5 ml-1">
+      <div className="hidden md:flex items-center gap-3 bg-slate-100 rounded-full py-1 px-5 ml-1">
         <IoSearch />
         <input
           type="text"
@@ -13,6 +14,7 @@ function Header() {
         />
       </div>
 
+      <HiMenuAlt2 size={23} className="md:hidden" />
       <div className="flexCenter gap-7">
         <div className="flex items-center gap-3">
           <Avatar
@@ -23,7 +25,7 @@ function Header() {
             Rey Bocaling
           </small>
         </div>
-        <IoNotificationsOutline size={20} className="text-mainColor" />
+        <IoNotificationsOutline size={23} className="text-mainColor" />
       </div>
     </div>
   );

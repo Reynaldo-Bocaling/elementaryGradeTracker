@@ -10,7 +10,7 @@ import {
   SelectItem,
   Select,
 } from "@nextui-org/react";
-import { section } from "../../services/DummyData";
+import { gradeLevel } from "../../services/DummyData";
 
 export default function UpdateStudent({
   isOpen,
@@ -35,46 +35,32 @@ export default function UpdateStudent({
               </ModalHeader>
               <ModalBody>
                 <form className="flexColStart gap-2">
-                  <div className="flexCenter gap-2 w-full">
-                    <Input
-                      type="text"
-                      size="sm"
-                      label="Firstname"
-                      value={selectData?.firstname}
-                    />
-                    <Input
-                      type="text"
-                      size="sm"
-                      label="Lastname"
-                      value={selectData?.lastname}
-                    />
-                  </div>
+                  <Input
+                    type="text"
+                    size="sm"
+                    label="Student Name"
+                    value={selectData?.firstname}
+                  />
+
+                  <Input
+                    type="text"
+                    size="sm"
+                    label="Parent Name"
+                    value={selectData?.parentName}
+                  />
+                  <Input
+                    type="text"
+                    size="sm"
+                    label="Parent Email"
+                    value={selectData?.parentEmail}
+                  />
 
                   <Select
                     size="sm"
-                    label="Select Course"
-                    value={selectData?.course}
+                    label="Select GradeLevel"
+                    value={selectData?.gradeLevel}
                   >
-                    {section.map((item) => (
-                      <SelectItem key={item.id} value={item.section}>
-                        {item.section}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                  <Select size="sm" label="Select Year">
-                    {section.map((item) => (
-                      <SelectItem key={item.id} value={item.section}>
-                        {item.section}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                  <Select
-                    size="sm"
-                    label="Select Section"
-                    className="max-w-full"
-                    value={selectData?.section}
-                  >
-                    {section.map((item) => (
+                    {gradeLevel.map((item) => (
                       <SelectItem key={item.id} value={item.section}>
                         {item.section}
                       </SelectItem>

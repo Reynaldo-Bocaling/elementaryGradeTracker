@@ -161,7 +161,7 @@ body {
 
 
 .link.active {
-  @apply text-mainColor font-medium after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:bg-mainColor after:w-[2px] after:h-[25px]
+  @apply text-violet-500 font-medium after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:bg-violet-500 after:w-[2px] after:h-[25px]
 }
 
 .tableToggleContainer {
@@ -170,4 +170,40 @@ body {
   left: 0%;
   border-radius: 10px;
   padding: 15px;
+}
+
+
+.img {
+  background-image: url('../assets/signInFloatingMain.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* shadow */
+.shadow-effect::after {
+  content: '';
+  position: absolute;
+  top: -300px;
+  left: -200px;
+  width: 700px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, hsla(286, 93%, 71%, 0.2),
+      transparent 64%);
+  z-index: .9;
+}
+
+.shadow-effect::before {
+  content: '';
+  position: absolute;
+  bottom: -300px;
+  right: -200px;
+  width: 700px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, hsla(268, 93%, 71%, 0.2),
+      transparent 64%);
+  z-index: .9;
 }

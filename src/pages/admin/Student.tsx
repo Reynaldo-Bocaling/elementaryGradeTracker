@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { studentData } from "../../services/DummyData";
-import { Input, Select, SelectItem } from "@nextui-org/react";
+import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 import UpdateStudent from "../../components/update-user/UpdateStudent";
-import { IoSearch } from "react-icons/io5";
+import { IoAddOutline, IoSearch } from "react-icons/io5";
 import Tables from "../../components/tables/StudentTable";
+import CreateStudent from "../../components/create-user/CreateStuden";
 
 type studentType = {
   id?: number;
@@ -16,6 +17,8 @@ type studentType = {
 };
 const Student = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isAddStudent, setIsAddStudent] = useState<boolean>(false);
+
   const [selectData, setSelectData] = useState<studentType>();
 
   const data = studentData.map(
@@ -71,6 +74,14 @@ const Student = () => {
               </SelectItem>
             ))}
           </Select>
+          <Button
+            color="primary"
+            className="text-sm flex items-center gap-2"
+            onClick={() => setIsAddStudent(true)}
+          >
+            Add
+            <IoAddOutline />
+          </Button>
         </div>
       </div>
       <div className="px-1">
@@ -87,6 +98,13 @@ const Student = () => {
           isOpen={isOpen}
           onCLose={() => setIsOpen(false)}
           data={selectData}
+        />
+      )}
+
+      {isAddStudent && (
+        <CreateStudent
+          isOpen={isAddStudent}
+          onCLose={() => setIsAddStudent(false)}
         />
       )}
     </>

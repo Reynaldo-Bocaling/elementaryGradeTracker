@@ -1152,22 +1152,30 @@ export const studentData = [
   },
 ];
 
-export const section = [
+export const gradeLevel = [
   {
     id: 1,
-    section: "A",
+    section: 1,
   },
   {
     id: 2,
-    section: "B",
+    section: 2,
   },
   {
     id: 3,
-    section: "C",
+    section: 3,
   },
   {
     id: 4,
-    section: "4D",
+    section: 4,
+  },
+  {
+    id: 5,
+    section: 5,
+  },
+  {
+    id: 6,
+    section: 6,
   },
 ];
 
@@ -1212,8 +1220,7 @@ export const users = [
 export const teacherData = [
   {
     id: 1,
-    firstname: "Roan",
-    lastname: "Cochanco",
+    name: "Roan Cochanco",
     contact: "09999",
     email: "roan@gmail.com",
     rank: 1,
@@ -1221,8 +1228,7 @@ export const teacherData = [
   },
   {
     id: 2,
-    firstname: "Alex",
-    lastname: "Cochanco",
+    name: "Alex Cochanco",
     contact: "09999",
     email: "alex@gmail.com",
     rank: 1,
@@ -1230,8 +1236,7 @@ export const teacherData = [
   },
   {
     id: 3,
-    firstname: "Gel",
-    lastname: "Cunanan",
+    name: " Gel Cunanan",
     contact: "09999",
     email: "gel@gmail.com",
     rank: 1,
@@ -1239,8 +1244,7 @@ export const teacherData = [
   },
   {
     id: 4,
-    firstname: "Drew",
-    lastname: "Villegas",
+    name: "Drew Villegas",
     contact: "09999",
     email: "drew@gmail.com",
     rank: 1,
@@ -1248,8 +1252,7 @@ export const teacherData = [
   },
   {
     id: 5,
-    firstname: "Michael",
-    lastname: "Bensi",
+    name: "Michael Bensi",
     contact: "09999",
     email: "mic@gmail.com",
     rank: 1,
@@ -1257,8 +1260,7 @@ export const teacherData = [
   },
   {
     id: 6,
-    firstname: "Gloria",
-    lastname: "Alcantara",
+    name: "Gloria Alcantara",
     contact: "09999",
     email: "gloria@gmail.com",
     rank: 1,

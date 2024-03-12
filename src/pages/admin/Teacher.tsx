@@ -1,52 +1,38 @@
 import { useState } from "react";
-import { studentData } from "../../services/DummyData";
-import { Input, Select, SelectItem } from "@nextui-org/react";
-import UpdateStudent from "../../components/update-user/UpdateStudent";
+import { teacherData } from "../../services/DummyData";
+import { Button, Input, Select, SelectItem } from "@nextui-org/react";
+import UpdateStudent from "../../components/update-user/UpdateTeacher";
 import { IoSearch } from "react-icons/io5";
-import Tables from "../../components/tables/StudentTable";
+import Tables from "../../components/tables/TeacherTable";
+import { IoAddOutline } from "react-icons/io5";
 
 type studentType = {
   id?: number;
-  firstname?: string;
-  lastname?: string;
+  name: string;
   gradeLevel: number;
   parentName: string;
   parentEmail: string;
-  section?: string[];
+  section?: string;
+};
+
+type teacherType = {
+  id: number;
+  name: string;
+  contact: string;
+  email: string;
+  rank: number;
 };
 const Student = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectData, setSelectData] = useState<studentType>();
-
-  const data = studentData.map(
-    (
-      { id, firstname, lastname, gradeLevel, parentName, parentEmail, section },
-      index
-    ) => ({
-      no: index + 1,
-      id,
-      name: `${firstname} ${lastname}`,
-      firstname,
-      lastname,
-      gradeLevel,
-      parentName,
-      parentEmail,
-      section,
-    })
-  );
+  const [selectData, setSelectData] = useState<teacherType | null>();
 
   const handleUpdate = (item: any) => {
     setSelectData(item);
   };
 
-  const headers = [
-    "#",
-    "Name",
-    "Grade level",
-    "Parent Name",
-    "Parent Email",
-    "Section",
-  ];
+  console.log(selectData);
+
+  const headers = ["#", "Name", "Contact", "Email", "Rank", "Students"];
   const semester = ["1st sem", "2ndsem"];
   return (
     <>
@@ -71,18 +57,22 @@ const Student = () => {
               </SelectItem>
             ))}
           </Select>
+          <Button color="primary" className="text-sm flex items-center gap-2">
+            Add
+            <IoAddOutline />
+          </Button>
         </div>
       </div>
       <div className="px-1">
         <Tables
-          data={data}
+          data={teacherData}
           header={headers}
           handleUpdate={handleUpdate}
           isOpenUpdate={() => setIsOpen(true)}
         />
       </div>
 
-      {isOpen && (
+      {isOpen && selectData && (
         <UpdateStudent
           isOpen={isOpen}
           onCLose={() => setIsOpen(false)}

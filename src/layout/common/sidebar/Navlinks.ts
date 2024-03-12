@@ -29,11 +29,11 @@ export const userLinks = {
       label: "Subjects",
       Icon: IoBookOutline,
     },
-    {
-      path: "/settings",
-      label: "Settings",
-      Icon: FiSettings,
-    },
+    // {
+    //   path: "/settings",
+    //   label: "Settings",
+    //   Icon: FiSettings,
+    // },
   ],
   teacher: [
     {
@@ -56,10 +56,10 @@ export const userLinks = {
       label: "Subjects",
       Icon: IoBookOutline,
     },
-    {
-      path: "/settings",
-      label: "Settings",
-      Icon: FiSettings,
-    },
+    // {
+    //   path: "/settings",
+    //   label: "Settings",
+    //   Icon: FiSettings,
+    // },
   ],
 };
